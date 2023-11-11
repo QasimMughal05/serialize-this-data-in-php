@@ -1,17 +1,3 @@
-// Your MySQL database connection details
-$servername = "your_servername";
-$username = "your_username";
-$password = "your_password";
-$database = "your_database";
-
-// Create a connection
-$conn = new mysqli($servername, $username, $password, $database);
-
-// Check the connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
 for ($i = 0; $i < count($orders['payload']['Orders']); $i++) {
     $AmazonOrderId = $orders['payload']['Orders'][$i]['AmazonOrderId'];
     $BuyerEmail = $orders['payload']['Orders'][$i]['BuyerInfo']['BuyerEmail'];
@@ -46,6 +32,3 @@ for ($i = 0; $i < count($orders['payload']['Orders']); $i++) {
         echo "Error saving serialized data for AmazonOrderId $AmazonOrderId: " . $conn->error;
     }
 }
-
-// Close the connection
-$conn->close();
